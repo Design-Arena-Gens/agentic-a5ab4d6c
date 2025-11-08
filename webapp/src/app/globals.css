@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --page-background: #020617;
+  --page-foreground: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--page-background);
+  color: var(--page-foreground);
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.35), transparent 40%);
+}
+
+.glass-surface {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(30, 41, 59, 0.6));
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.grid-overlay {
+  background-image: linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.shine-border {
+  position: relative;
+}
+
+.shine-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(249, 115, 22, 0.6));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
